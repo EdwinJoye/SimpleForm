@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Form from "./components/Form";
 
 function App() {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmpassword, setConfirmpassword] = useState("");
+  const [formulaire, setformulaire] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="body">
+      {/* HEADER */}
+      <header className="header">
+        <h1 className="title">Creat Account</h1>
       </header>
+      {/* BODY */}
+      <Form
+        setUsername={setUsername}
+        usernameValue={username}
+        setEmail={setEmail}
+        emailValue={email}
+        setPassword={setPassword}
+        passwordValue={password}
+        setConfirmpassword={setConfirmpassword}
+        confirmpasswordValue={confirmpassword}
+        setformulaire={setformulaire}
+      ></Form>
+
+      {/* FOOTER */}
+      <footer className="footer">
+        <p>
+          {" "}
+          Made with <span className="span"> React</span> at{" "}
+          <span>Le Reacteur</span> by <span> Edwin </span>
+        </p>
+      </footer>
     </div>
   );
 }
